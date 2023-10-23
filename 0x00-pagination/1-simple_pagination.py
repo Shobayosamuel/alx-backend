@@ -1,8 +1,21 @@
 #!/usr/bin/env python3
+"""
+create class server
+"""
+
 
 import csv
 import math
 from typing import List
+
+
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    """
+        Return the start and the end index
+    """
+    start_index = (page-1) * page_size
+    end_index = start_index + page_size
+    return start_index, end_index
 
 
 class Server:
@@ -25,6 +38,13 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-            assert type(page) == "int" and page > 0
-            assert type(page_size) == "int" and page_size > 0
-
+        """
+        Return the pages
+        """
+        assert type(page) == "int" and page > 0
+        assert type(page_size) == "int" and page_size > 0
+        start_index, end_index = index_range(page, page_size)
+        data = self.dataset()
+        if start_index > len(data):
+            return []
+        return data[start_index:end_index]

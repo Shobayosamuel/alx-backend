@@ -6,7 +6,7 @@ create class server
 
 import csv
 import math
-from typing import List
+from typing import List, Tuple
 
 
 def index_range(page: int, page_size: int) -> Tuple[int, int]:
@@ -41,8 +41,8 @@ class Server:
         """
         Return the pages
         """
-        assert type(page) == "int" and page > 0
-        assert type(page_size) == "int" and page_size > 0
+        assert type(page) == int and page > 0
+        assert type(page_size) == int and page_size > 0
         start_index, end_index = index_range(page, page_size)
         data = self.dataset()
         if start_index > len(data):

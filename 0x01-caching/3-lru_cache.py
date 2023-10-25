@@ -12,7 +12,6 @@ class LRUCache(BaseCaching):
     def put(self, key, item):
         """Method to put a key-value pair using LRU method of caching"""
         if key is not None and item is not None:
-            self.cache_data[key] = item
             if len(self.cache_data) >= BaseCaching.MAX_ITEMS:
                 last_key = self.order.pop(0)
                 del self.cache_data[last_key]

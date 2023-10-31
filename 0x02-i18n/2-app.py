@@ -30,7 +30,7 @@ def get_locale():
 @app.route("/", strict_slashes=False)
 def hello_world():
     """function to return index page"""
-    return render_template("1-index.html")
+    return render_template("2-index.html")
 
 
 if __name__ == '__main__':

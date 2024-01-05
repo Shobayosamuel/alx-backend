@@ -12,6 +12,7 @@ subscriber.on('error', (error) => {
 })
 
 subscriber.on('message', (channel, message) => {
+  console.log(`Message received on channel ${channel}: ${message}`);
   if (message === 'KILL_SERVER') {
     subscriber.unsubscribe();
     subscriber.quit();
